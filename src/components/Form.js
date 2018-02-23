@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 class Form extends PureComponent {
   render() {
     return (
-      <form onSubmit={}>
+      <form onSubmit="">
         <input type="text" className="Form" />
       </form>
     )
   }
 }
 
-export default Word
+export default Form
