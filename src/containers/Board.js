@@ -12,7 +12,7 @@ class Board extends PureComponent {
   render() {
     return (
       <div className="Board">
-        <Word />
+        <Word word={this.props.word}/>
         <Form />
       </div>
     )
