@@ -5,15 +5,17 @@ import Form from '../components/Form'
 //import './Board.css'
 
 class Board extends PureComponent {
-  static PropTypes = {
+  static propTypes = {
     word: PropTypes.string.isRequired
   }
 
   render() {
-    <div className="Board">
-      <Word />
-      <Form />
-    </div>
+    return (
+      <div className="Board">
+        <Word />
+        <Form />
+      </div>
+    )
   }
 }
 
