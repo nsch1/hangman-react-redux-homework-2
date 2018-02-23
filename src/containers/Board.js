@@ -1,5 +1,7 @@
 import React, { PureComponent} from 'react'
 import PropTypes from 'prop-types'
+import Word from '../components/Word'
+import Form from '../components/Form'
 //import './Board.css'
 
 class Board extends PureComponent {
