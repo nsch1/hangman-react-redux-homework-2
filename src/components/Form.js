@@ -10,3 +10,5 @@ class Form extends PureComponent {
     )
   }
 }
+
+export default Word
