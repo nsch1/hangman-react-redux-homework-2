@@ -1,5 +1,6 @@
 import React, { PureComponent} from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import Word from '../components/Word'
 import Form from '../components/Form'
 //import './Board.css'
@@ -12,11 +13,13 @@ class Board extends PureComponent {
   render() {
     return (
       <div className="Board">
-        <Word word={this.props.word}/>
+        <Word word={this.props.word} />
         <Form />
       </div>
     )
   }
 }
 
-export default Board
+const mapStateToProps = ({ word }) => ({ word })
+
+export default connect(mapStateToProps)(Board)
