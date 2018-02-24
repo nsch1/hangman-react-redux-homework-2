@@ -22,8 +22,7 @@ class Form extends PureComponent {
         this.handleSubmit(input.value)
         event.target.reset()
       }}>
-        <input type="text" className="Form" ref={node => {input = node}} />
-        <input type="submit" value="Submit" />
+        <input type="text" maxlength="1" className="Form" ref={node => {input = node}} />
       </form>
     )
   }

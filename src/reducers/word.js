@@ -1,10 +1,17 @@
 import { showGuess } from '../lib/game'
 import { GUESS } from '../actions/types'
 
-export default (state = "_ _ _ _ _", { type, guesses } = {}) => {
+const word = "hello"
+
+const guessedWord = word.split("").join(" ")
+
+const hiddenWord = word.split("").map(e => "_").join(" ")
+
+export default (state = hiddenWord, { type, guesses } = {}) => {
   switch (type) {
     case GUESS :
-      return showGuess("hello", guesses)
+      if (showGuess(word, guesses) === guessedWord) return `You won! The word was: ${word}`
+      return showGuess(word, guesses)
     default:
       return state
   }
