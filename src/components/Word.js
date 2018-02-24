@@ -7,9 +7,7 @@ class Word extends PureComponent {
   }
 
   render() {
-    return (
-      <h2>{ this.props.word }</h2>
-    )
+    return <h2>{ this.props.word }</h2>
   }
 }
 

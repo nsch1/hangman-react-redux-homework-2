@@ -1,10 +1,8 @@
 import { GUESS } from './types'
 
-export const guessLetter = (guess) => {
+export const guessLetter = (guesses) => {
   return {
     type: GUESS,
-    payload: {
-      guess
-    }
+    guesses
   }
 }

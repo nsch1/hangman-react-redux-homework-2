@@ -7,19 +7,22 @@ import Form from '../components/Form'
 
 class Board extends PureComponent {
   static propTypes = {
-    word: PropTypes.string.isRequired
+    word: PropTypes.string.isRequired,
+    guesses: PropTypes.arrayOf(PropTypes.string).isRequired
   }
 
   render() {
+    const { word, guesses } = this.props
+
     return (
       <div className="Board">
-        <Word word={this.props.word} />
-        <Form />
+        <Word word={word} guesses={guesses} />
+        <Form guesses={guesses} />
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ word }) => ({ word })
+const mapStateToProps = ({ word, guesses }) => ({ word, guesses })
 
 export default connect(mapStateToProps)(Board)
