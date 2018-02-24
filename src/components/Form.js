@@ -11,7 +11,6 @@ class Form extends PureComponent {
 
   handleSubmit = (guess) => {
     this.props.guessLetter(this.props.guesses.concat(guess))
-    //event.target.reset()
   }
 
   render() {
@@ -22,7 +21,7 @@ class Form extends PureComponent {
         this.handleSubmit(input.value)
         event.target.reset()
       }}>
-        <input type="text" maxLength="1" className="Form" ref={node => {input = node}} />
+        <input type="text" maxLength="1" className="Form" ref={text => {input = text}} />
       </form>
     )
   }

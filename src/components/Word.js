@@ -1,13 +1,16 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { showGuess, wrongGuessLimit, wordList } from '../lib/game'
 
 class Word extends PureComponent {
   static propTypes = {
-    word: PropTypes.string.isRequired
+    word: PropTypes.string.isRequired,
+    guesses: PropTypes.arrayOf(PropTypes.string).isRequired
   }
 
   render() {
-    return <h2>{ this.props.word }</h2>
+    const { word, guesses} = this.props
+    return <h2>{ showGuess(word, guesses) }</h2>
   }
 }
 

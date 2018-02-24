@@ -1,18 +1,16 @@
-import { showGuess, wrongGuessLimit } from '../lib/game'
-import { GUESS } from '../actions/types'
+import { showGuess, wrongGuessLimit, wordList } from '../lib/game'
+import { GUESS, NEW_GAME } from '../actions/types'
 
-const word = "hello"
+const word = wordList[Math.floor(Math.random() * wordList.length)]
 
-const guessedWord = word.split("").join(" ")
-
-const hiddenWord = word.split("").map(e => "_").join(" ")
-
-export default (state = hiddenWord, { type, guesses } = {}) => {
+export default (state = word, { type, guesses, newWord } = {}) => {
   switch (type) {
     case GUESS :
-      if (wrongGuessLimit(word, guesses)) return `You lost.. :( The word was: ${word}`
-      if (showGuess(word, guesses) === guessedWord) return `You won! The word was: ${word}`
-      return showGuess(word, guesses)
+      //if (wrongGuessLimit(state, guesses)) return `You lost.. :( The word was: ${word}`
+      //if (showGuess(state, guesses) === guessedWord) return `You won! The word was: ${word}`
+      return state
+    case NEW_GAME :
+      return newWord
     default:
       return state
   }
