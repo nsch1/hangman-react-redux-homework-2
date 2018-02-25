@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { showGuess } from '../lib/game'
 
 class Word extends PureComponent {
@@ -14,4 +15,6 @@ class Word extends PureComponent {
   }
 }
 
-export default Word
+const mapStateToProps = ({ word, guesses }) => ({ word, guesses })
+
+export default connect(mapStateToProps)(Word)

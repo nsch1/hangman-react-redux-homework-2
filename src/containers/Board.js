@@ -13,13 +13,11 @@ class Board extends PureComponent {
   }
 
   render() {
-    const { word, guesses } = this.props
-
     return (
       <div className="Board">
-        <Flash word={word} guesses={guesses} />
-        <Word word={word} guesses={guesses} />
-        <Form word={word} guesses={guesses} />
+        <Flash />
+        <Word />
+        <Form />
       </div>
     )
   }

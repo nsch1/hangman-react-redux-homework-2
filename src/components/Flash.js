@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { isWinner, wrongGuessLimit } from '../lib/game'
 
 class Flash extends PureComponent {
@@ -21,4 +22,6 @@ class Flash extends PureComponent {
   }
 }
 
-export default Flash
+const mapStateToProps = ({ word, guesses }) => ({ word, guesses })
+
+export default connect(mapStateToProps)(Flash)

@@ -34,4 +34,6 @@ class Form extends PureComponent {
   }
 }
 
-export default connect(null, { guessLetter })(Form)
+const mapStateToProps = ({ word, guesses }) => ({ word, guesses })
+
+export default connect(mapStateToProps, { guessLetter })(Form)
