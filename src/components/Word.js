@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { showGuess } from '../lib/game'
+import { showGuess, wrongGuessCount } from '../lib/game'
 
 class Word extends PureComponent {
   static propTypes = {
@@ -10,8 +10,13 @@ class Word extends PureComponent {
   }
 
   render() {
-    const { word, guesses} = this.props
-    return <h2>{ showGuess(word, guesses) }</h2>
+    const { word, guesses } = this.props
+    return (
+      <div className="game-info">
+        <h2>{ showGuess(word, guesses) }</h2>
+        <h3>Wrong guesses: {wrongGuessCount(word, guesses)}</h3>
+      </div>
+    )
   }
 }
 
