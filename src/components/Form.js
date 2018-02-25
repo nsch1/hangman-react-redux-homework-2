@@ -12,7 +12,8 @@ class Form extends PureComponent {
   }
 
   handleSubmit = (guess) => {
-    this.props.guessLetter(this.props.guesses.concat(guess))
+    const { guesses, guessLetter } = this.props
+    guessLetter(guesses.concat(guess.toLowerCase()))
   }
 
   render() {
