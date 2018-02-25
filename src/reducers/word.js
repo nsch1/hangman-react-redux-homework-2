@@ -1,5 +1,5 @@
 import { wordList } from '../lib/game'
-import { GUESS, NEW_GAME } from '../actions/types'
+import { NEW_GAME } from '../actions/types'
 
 const word = wordList[Math.floor(Math.random() * wordList.length)]
 

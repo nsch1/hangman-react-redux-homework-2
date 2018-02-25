@@ -11,7 +11,9 @@ class Form extends PureComponent {
     guesses: PropTypes.arrayOf(PropTypes.string).isRequired
   }
 
-  handleSubmit = (guess) => {
+  handleSubmit = (e) => {
+    const guess = e.target.value
+    e.target.value = null
     const { guesses, guessLetter } = this.props
     const lowerGuess = guess.toLowerCase()
     if (guesses.indexOf(lowerGuess) === -1) guessLetter(lowerGuess)
@@ -24,12 +26,8 @@ class Form extends PureComponent {
 
     let input
     return (
-      <form onSubmit={(event) => {
-        event.preventDefault()
-        this.handleSubmit(input.value)
-        event.target.reset()
-      }}>
-        <input type="text" maxLength="1" className="Form" ref={text => {input = text}} />
+      <form>
+        <input type="text" maxLength="1" className="Form"  onChange={e => this.handleSubmit.bind(this)(e)} />
       </form>
     )
   }
