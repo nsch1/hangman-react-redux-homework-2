@@ -5,8 +5,6 @@ const word = wordList[Math.floor(Math.random() * wordList.length)]
 
 export default (state = word, { type, guesses, newWord } = {}) => {
   switch (type) {
-    case GUESS :
-      return state
     case NEW_GAME :
       return newWord
     default:

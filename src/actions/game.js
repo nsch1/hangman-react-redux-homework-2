@@ -1,9 +1,9 @@
 import { GUESS, NEW_GAME } from './types'
 
-export const guessLetter = (guesses) => {
+export const guessLetter = (guess) => {
   return {
     type: GUESS,
-    guesses
+    guess
   }
 }
 
