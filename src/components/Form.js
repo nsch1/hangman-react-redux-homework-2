@@ -15,8 +15,8 @@ class Form extends PureComponent {
     const guess = e.target.value
     e.target.value = null
     const { guesses, guessLetter } = this.props
-    const lowerGuess = guess.toLowerCase()
-    if (guesses.indexOf(lowerGuess) === -1) guessLetter(lowerGuess)
+    const lowerGuess = guess.toLowerCase().replace(/\s/g, '')
+    if (guesses.indexOf(lowerGuess) === -1 && lowerGuess !== "") guessLetter(lowerGuess)
   }
 
   render() {
