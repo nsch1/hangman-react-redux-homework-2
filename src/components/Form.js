@@ -13,7 +13,8 @@ class Form extends PureComponent {
 
   handleSubmit = (guess) => {
     const { guesses, guessLetter } = this.props
-    guessLetter(guess.toLowerCase())
+    const lowerGuess = guess.toLowerCase()
+    if (guesses.indexOf(lowerGuess) === -1) guessLetter(lowerGuess)
   }
 
   render() {
