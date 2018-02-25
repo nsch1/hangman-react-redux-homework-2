@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { showGuess, wrongGuessLimit, wordList } from '../lib/game'
+import { showGuess } from '../lib/game'
 
 class Word extends PureComponent {
   static propTypes = {

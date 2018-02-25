@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import Word from '../components/Word'
 import Form from '../components/Form'
 import Flash from '../components/Flash'
-import NewGameButton from '../components/NewGameButton'
 //import './Board.css'
 
 class Board extends PureComponent {
