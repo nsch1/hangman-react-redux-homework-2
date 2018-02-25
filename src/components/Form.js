@@ -26,7 +26,7 @@ class Form extends PureComponent {
 
     let input
     return (
-      <form>
+      <form onSubmit={e => e.preventDefault()} >
         <input type="text" maxLength="1" className="Form"  onChange={e => this.handleSubmit.bind(this)(e)} />
       </form>
     )
