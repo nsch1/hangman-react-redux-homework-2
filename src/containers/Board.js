@@ -20,7 +20,7 @@ class Board extends PureComponent {
       <div className="Board">
         <Flash word={word} guesses={guesses} />
         <Word word={word} guesses={guesses} />
-        <Form guesses={guesses} />
+        <Form word={word} guesses={guesses} />
       </div>
     )
   }

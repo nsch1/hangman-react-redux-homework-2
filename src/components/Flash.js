@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { showGuess, wrongGuessLimit } from '../lib/game'
+import { isWinner, wrongGuessLimit } from '../lib/game'
 
 class Flash extends PureComponent {
   static propTypes = {
@@ -9,8 +9,10 @@ class Flash extends PureComponent {
   }
 
   renderFlash = () => {
-    if (showGuess(this.props.word, this.props.guesses) === this.props.word.split('').join(' ')) return <h2>You won!</h2>
-    if (wrongGuessLimit(this.props.word, this.props.guesses)) return <h2>You lost.. the word was: {this.props.word}.</h2>
+    const { word, guesses } = this.props
+
+    if (isWinner(word, guesses)) return <h2>You won!</h2>
+    if (wrongGuessLimit(word, guesses)) return <h2>You lost.. the word was: {word}.</h2>
     return null
   }
 

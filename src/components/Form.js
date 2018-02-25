@@ -2,10 +2,12 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { guessLetter } from '../actions/game'
+import { gameFinished } from '../lib/game'
 
 class Form extends PureComponent {
   static propTypes = {
     guessLetter: PropTypes.func.isRequired,
+    word: PropTypes.string.isRequired,
     guesses: PropTypes.arrayOf(PropTypes.string).isRequired
   }
 
@@ -14,6 +16,10 @@ class Form extends PureComponent {
   }
 
   render() {
+    const { word, guesses } = this.props
+
+    if(gameFinished(word, guesses)) return null
+
     let input
     return (
       <form onSubmit={(event) => {

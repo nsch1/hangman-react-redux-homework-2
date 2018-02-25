@@ -6,6 +6,14 @@ export const wrongGuessLimit = (word, guesses) => {
   return guesses.filter(guess => word.indexOf(guess) < 0).length >= 6
 }
 
+export const isWinner = (word, guesses) => {
+  return showGuess(word, guesses) === word.split('').join(' ')
+}
+
+export const gameFinished = (word, guesses) => {
+  return (wrongGuessLimit(word, guesses) || isWinner(word, guesses))
+}
+
 export const wordList = [
   // Borrowed from xkcd password generator which borrowed it from wherever
   "ability","able","aboard","about","above","accept","accident","according",
