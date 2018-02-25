@@ -15,6 +15,7 @@ class Word extends PureComponent {
       <div className="game-info">
         <h2>{ showGuess(word, guesses) }</h2>
         <h3>Wrong guesses: {wrongGuessCount(word, guesses)}</h3>
+        <h3>Previous guesses: {guesses.join(", ")}</h3>
       </div>
     )
   }
