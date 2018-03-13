@@ -18,7 +18,7 @@ export const gameFinished = (word, guesses) => {
   return (wrongGuessLimit(word, guesses) || isWinner(word, guesses))
 }
 
-export const wordList = [
+const wordList = [
   // Borrowed from xkcd password generator which borrowed it from wherever
   "ability","able","aboard","about","above","accept","accident","according",
   "account","accurate","acres","across","act","action","active","activity",

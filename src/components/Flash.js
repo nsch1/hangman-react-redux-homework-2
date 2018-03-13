@@ -1,12 +1,26 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { startNewGame } from '../actions/game'
 import { isWinner, wrongGuessLimit } from '../lib/game'
 
 class Flash extends PureComponent {
   static propTypes = {
     word: PropTypes.string.isRequired,
     guesses: PropTypes.arrayOf(PropTypes.string).isRequired
+  }
+
+  handleKeyPress = (e) => {
+    console.log(e.key)
+    if (e.key === "Enter") this.props.startNewGame()
+  }
+
+  componentDidMount() {
+    window.addEventListener('keypress', this.handleKeyPress)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keypress', this.handleKeyPress)
   }
 
   renderFlash = () => {
@@ -24,4 +38,4 @@ class Flash extends PureComponent {
 
 const mapStateToProps = ({ word, guesses }) => ({ word, guesses })
 
-export default connect(mapStateToProps)(Flash)
+export default connect(mapStateToProps, { startNewGame })(Flash)

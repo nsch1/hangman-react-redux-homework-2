@@ -1,4 +1,5 @@
 import { GUESS, NEW_GAME } from './types'
+import { randomWord } from '../lib/game'
 
 export const guessLetter = (guess) => {
   return {
@@ -10,6 +11,6 @@ export const guessLetter = (guess) => {
 export const startNewGame = (newWord) => {
   return {
     type: NEW_GAME,
-    newWord
+    newWord: randomWord()
   }
 }

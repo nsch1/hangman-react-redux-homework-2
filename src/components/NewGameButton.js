@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { startNewGame } from '../actions/game'
-import { randomWord, gameFinished } from '../lib/game'
+import { gameFinished } from '../lib/game'
 
 class NewGameButton extends PureComponent {
   static propTypes = {
@@ -12,7 +12,7 @@ class NewGameButton extends PureComponent {
   }
 
   handleOnClick = () => {
-    this.props.startNewGame(randomWord())
+    this.props.startNewGame()
   }
 
   render() {
