@@ -5,7 +5,11 @@ import { guessLetter } from '../actions/game'
 
 class Keyboard extends PureComponent {
   static propTypes = {
-    guesses: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+    word: PropTypes.string.isRequired,
+    guesses: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    firstRow: PropTypes.string.isRequired,
+    secondRow: PropTypes.string.isRequired,
+    thirdRow: PropTypes.string.isRequired
   }
 
   handleKeyPress = (e) => {
@@ -21,10 +25,6 @@ class Keyboard extends PureComponent {
 
   componentWillUnmount() {
     window.removeEventListener('keypress', this.handleKeyPress)
-  }
-
-  renderLetter = (letter) => {
-    return <p>{letter}</p>
   }
 
   render() {

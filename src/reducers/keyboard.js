@@ -1,3 +1,5 @@
+import { NEW_GAME, GUESS } from '../actions/types'
+
 const initialState = [
   "Q W E R T Y U I O P",
   "A S D F G H J K L",
@@ -6,13 +8,13 @@ const initialState = [
 
 export default (state = initialState, { type, guess }) => {
   switch(type) {
-    case 'GUESS':
+    case GUESS:
       const upperGuess = guess.toUpperCase()
       return state.map(row => {
         if (row.includes(upperGuess)) return row.replace(upperGuess, '_')
         return row
       })
-    case 'NEW_GAME':
+    case NEW_GAME:
       return initialState
     default:
       return state

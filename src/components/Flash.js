@@ -1,34 +1,20 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { startNewGame } from '../actions/game'
 import { isWinner, wrongGuessLimit } from '../lib/game'
 
 class Flash extends PureComponent {
   static propTypes = {
     word: PropTypes.string.isRequired,
-    guesses: PropTypes.arrayOf(PropTypes.string).isRequired
-  }
-
-  handleKeyPress = (e) => {
-    console.log(e.key)
-    if (e.key === "Enter") this.props.startNewGame()
-  }
-
-  componentDidMount() {
-    window.addEventListener('keypress', this.handleKeyPress)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('keypress', this.handleKeyPress)
+    winner: PropTypes.bool.isRequired,
+    loser: PropTypes.bool.isRequired
   }
 
   renderFlash = () => {
-    const { word, guesses } = this.props
+    const { winner, loser, word } = this.props
 
-    if (isWinner(word, guesses)) return <h2>You won!</h2>
-    if (wrongGuessLimit(word, guesses)) return <h2>You lost.. the word was: {word}.</h2>
-    return null
+    if (winner) return <h2>You won!</h2>
+    if (loser) return <h2>You lost.. the word was: {word}.</h2>
   }
 
   render() {
@@ -36,6 +22,12 @@ class Flash extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ word, guesses }) => ({ word, guesses })
+const mapStateToProps = ({ word, guesses }) => {
+  return {
+    word,
+    winner: isWinner(word, guesses),
+    loser: wrongGuessLimit(word, guesses)
+  }
+}
 
-export default connect(mapStateToProps, { startNewGame })(Flash)
+export default connect(mapStateToProps)(Flash)
