@@ -14,7 +14,7 @@ class Flash extends PureComponent {
     const { winner, loser, word } = this.props
 
     if (winner) return <h2>You won!</h2>
-    if (loser) return <h2>You lost.. the word was: {word}.</h2>
+    if (loser) return <h2>the word was: {word}.</h2>
   }
 
   render() {
