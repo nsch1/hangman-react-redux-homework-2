@@ -16,7 +16,8 @@ class Keyboard extends PureComponent {
     const guess = e.key
     const { guesses, guessLetter } = this.props
     const lowerGuess = guess.toLowerCase().replace(/[^a-z]/g, '')
-    if (guesses.indexOf(lowerGuess) === -1 && lowerGuess.length === 1) guessLetter(lowerGuess)
+    if (guesses.indexOf(lowerGuess) === -1 && lowerGuess.length === 1) 
+      guessLetter(lowerGuess)
   }
 
   componentDidMount() {
